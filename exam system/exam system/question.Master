@@ -1,0 +1,150 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="question.Master.cs" Inherits="exam_system.Site1" %>
+<%@ Import Namespace="System.Data.SqlClient" %>
+<%@ Import Namespace="System.Data" %>
+
+<!DOCTYPE html>
+<script runat="server">
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+        string time = "";
+        string ecode = "";
+        string ename = "";
+        string CourseName = "";
+
+        if (Request.Cookies["examInfo"] != null)
+        {
+
+            ecode = Request.Cookies["examInfo"].Values["ecode"];
+            ename = Request.Cookies["examInfo"].Values["ename"];
+            time = Request.Cookies["examInfo"].Values["etime"];
+
+        }
+        if (Request.Cookies["courseInfo"] != null)
+        {
+            CourseName = Request.Cookies["courseInfo"].Values["cn"];
+
+        }
+        //int t = Int16.Parse(time);
+        ////for (int i = 0; t!=0; i++)
+        ////{
+        ////    t--;
+        ////    string tick=t.ToString();
+        //int tick = t * 60;
+        ////Timer1.Start();
+
+        //Label1.Text =tick.ToString();
+        //tick--;
+        //}
+        lblMsg.Text = CourseName+" - "+ename+" exam ";
+
+    }
+
+
+</script>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            height: 104px;
+        }
+        .auto-style4 {
+            height: 309px;
+        }
+        .auto-style5 {
+            width: 167px;
+        }
+        .auto-style6 {
+            width: 100%;
+            height: 162px;
+        }
+        .auto-style7 {
+            width: 154px;
+        }
+        .auto-style8 {
+            width: 167px;
+            font-family: Arial;
+            font-size: medium;
+            color: #000066;
+        }
+        .auto-style9 {
+            width: 239px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style2">
+                    <table class="auto-style6">
+                        <tr>
+                            <td class="auto-style5">
+                                <asp:Image ID="imguserpic" runat="server" src="loop (1).png" Height="125px" Width="157px" />
+                            </td>
+                            <td>
+                                <asp:Label ID="lblMsg" runat="server" Font-Bold="True" Font-Names="Arial Black" Font-Size="X-Large" ForeColor="#000066"></asp:Label>
+                                <br />
+                                <%--<asp:ScriptManager ID="ScriptManager1" runat="server">
+                                </asp:ScriptManager>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Timer ID="Timer1" runat="server" Interval="1000">
+                                </asp:Timer>
+&nbsp;<asp:Label ID="Label1" runat="server" BackColor="#50A4AC" Text="Label" Font-Size="X-Large" ForeColor="White" BorderColor="Black" BorderStyle="Solid"></asp:Label>
+                                --%></td>
+
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="auto-style1">
+                        <tr>
+                            <td class="auto-style7">
+                                &nbsp;</td>
+                            <td class="auto-style8">
+                                &nbsp;</td>
+                            <td class="auto-style9">
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style4" style="vertical-align: top">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <p>
+                    <br />
+                </p>
+                <p>
+                </p>
+                <p>
+                </p>
+                <p>
+                </p>
+                <p>
+                </p>
+                <p>
+                </p>
+                <p>
+                </p>
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
